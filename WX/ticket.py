@@ -2,11 +2,11 @@ import sys
 
 def calculate_ticket_price(age):
     if 7<= age < 13:
-        price = 69
+        price = 120
     elif 13 <= age < 60:
-        price = 250
+        price = 200
     elif age >= 60:
-        price = 79
+        price = 150
     else:
         price = "Invalid age"
     return price
