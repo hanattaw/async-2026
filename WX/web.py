@@ -5,7 +5,7 @@ import httpx
 async def get_user_name(user_id):
     url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=30.0) as client:
         response = await client.get(url)
         return response.json()["name"]
 
