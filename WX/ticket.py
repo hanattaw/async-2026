@@ -1,9 +1,15 @@
 import sys
 
 def calculate_ticket_price(age):
-    # --- เขียนโค้ดของนักเรียนในส่วนนี้ / Write your code here ---
-    pass
-    # --------------------------------------------------------
+    if 7<= age < 13:
+        price = 120
+    elif 13 <= age < 60:
+        price = 200
+    elif age >= 60:
+        price = 150
+    else:
+        price = "Invalid age"
+    return price
 
 def main():
     # เปลี่ยนมาเช็ก > 1 และใช้ sys.argv[-1] เพื่อความแม่นยำใน VPL
@@ -12,7 +18,7 @@ def main():
         result = calculate_ticket_price(test_age)
         print(result)
     else:
-        test_age = 25
+        test_age = 6
         result = calculate_ticket_price(test_age)
         print(f"Age: {test_age} -> Ticket Price: {result} Baht")
 
