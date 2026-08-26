@@ -59,6 +59,7 @@ async def main():
     # 4. ส่ง Sentinel Value (None) เพื่อแจ้งให้ Consumer หยุดลูปการทำงาน
     await queue.put(None)
     await cons_task
+    # 5. แสดงผลลัพธ์สรุปจำนวนคูปองที่ถูกสร้างและดึงออกไปประมวลผล
 
 
 if __name__ == "__main__":

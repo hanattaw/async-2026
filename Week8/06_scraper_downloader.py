@@ -38,7 +38,7 @@ async def image_downloader(queue: asyncio.Queue, worker_name: str):
             break
 
         downloaded_count += 1
-
+        # จำลองการดาวน์โหลดรูปภาพ
         print(
             f" -> [{worker_name}] (รูปที่ {downloaded_count}) "
             f"กำลังโหลด: {img_url}"

@@ -1,11 +1,11 @@
 import asyncio
 
-
+# Producer-Consumer แบบ Multi-Consumer
 async def producer(queue: asyncio.Queue, total_coupons: int):
     """
     Producer: สร้าง Coupon จำนวน 20 ใบ แล้วส่งเข้า asyncio.Queue
     """
-
+    
     print(f"[Producer] เริ่มสร้างคูปองจำนวน {total_coupons} ใบ...")
 
     for i in range(1, total_coupons + 1):
