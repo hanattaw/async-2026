@@ -1,14 +1,25 @@
-from time import ctime, time
 import asyncio
+from time import ctime, time
 
-# ฟังก์ชันจำลองการทำกาแฟแบบ Asynchronous
-async def make_coffee(customer_name):
-    pass
+async def make_coffee(customer):
+    print(f"{ctime()} | Making coffee for {customer}...")
+    await asyncio.sleep(1)
+    print(f"{ctime()} | Coffee ready for {customer}!")
+
+    print(f"{ctime()} | LCD: Processing for customer {customer}...")
+    await asyncio.sleep(1)
+    print(f"{ctime()} | LCD: Done for customer {customer}.")
 
 async def main():
-    pass
+    queue = ['A', 'B', 'C']
+    print(f"{ctime()} | === Asyncio Coffee Machine ===")
+    start_time = time()
 
-# สั่งให้ระบบ Async เริ่มทำงาน
-if __name__ == "__main__":
-    # ใช้ asyncio.run เพื่อเปิด Event Loop หลักของโปรแกรม
+    tasks = [asyncio.create_task(make_coffee(customer)) for customer in queue]
+    await asyncio.gather(*tasks)
+
+    duration = time() - start_time
+    print(f"{ctime()} | Total time: {duration:.2f} seconds")
+
+if __name__ == '__main__':
     asyncio.run(main())
