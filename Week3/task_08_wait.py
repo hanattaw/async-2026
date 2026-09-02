@@ -23,7 +23,7 @@ async def main():
     for finished_task in done:
         print(f"{ctime()} Fastest Task Result: {finished_task.result()}")
         
-    # 
+    # Clean up remaining 
     for ongoing_task in pending:
         ongoing_task.cancel()
 

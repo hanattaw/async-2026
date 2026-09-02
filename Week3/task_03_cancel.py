@@ -14,10 +14,10 @@ async def background_loop():
 
 async def main():
     task = asyncio.create_task(background_loop())
-    await asyncio.sleep(2.5) # 
+    await asyncio.sleep(2.5) # Let the background task tick a few times
     
     print(f"{ctime()} Main: Changing plans, canceling the worker task now!")
-    task.cancel() # 
-    await asyncio.sleep(0.1) # 
+    task.cancel() # Request cancellation
+    await asyncio.sleep(0.1) # Yield execution window to let worker run its except blpck
 
 asyncio.run(main())

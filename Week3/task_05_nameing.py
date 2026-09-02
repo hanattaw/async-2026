@@ -8,7 +8,7 @@ async def background_worker():
 async def main():
     task = asyncio.create_task(background_worker())
     
-    # 
+    # default auto-generated name assigned by Python
     print(f"{ctime()} Initial Name: {task.get_name()}") # 
     
     # 

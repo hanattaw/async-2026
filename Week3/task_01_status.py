@@ -9,7 +9,7 @@ async def short_job():
 async def main():
     task = asyncio.create_task(short_job())
     
-    # 
+    # Ins
     print(f"{ctime()} Is task done? {task.done()}")          # 
     print(f"{ctime()} Is task canceled? {task.cancelled()}")  # 
     
