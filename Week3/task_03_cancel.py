@@ -9,15 +9,15 @@ async def background_loop():
             await asyncio.sleep(1)
             print(f"{ctime()} Worker: Still ticking...")
     except asyncio.CancelledError:
-        # 
+        # Injected when task.cancel() is executed at next await checkpoint
         print(f"{ctime()} Worker: Interrupted! Executing clean-up logic before exit...")
 
 async def main():
     task = asyncio.create_task(background_loop())
-    await asyncio.sleep(2.5) # 
+    await asyncio.sleep(2.5) # Let the bakground task tick a few times 
     
     print(f"{ctime()} Main: Changing plans, canceling the worker task now!")
-    task.cancel() # 
-    await asyncio.sleep(0.1) # 
+    task.cancel() # Request cancellation 
+    await asyncio.sleep(0.1) # Yield execution window to let worker run its except block
 
 asyncio.run(main())

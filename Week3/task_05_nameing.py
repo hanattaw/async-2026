@@ -8,11 +8,11 @@ async def background_worker():
 async def main():
     task = asyncio.create_task(background_worker())
     
-    # 
-    print(f"{ctime()} Initial Name: {task.get_name()}") # 
+    # Default auto-generated name assigned by python framework
+    print(f"{ctime()} Initial Name: {task.get_name()}") # expected: task-2
     
-    # 
+    # Override name with a custom domain specific tag
     task.set_name("Payment-Gateway-Validator")
-    print(f"{ctime()} Updated Name: {task.get_name()}") # 
+    print(f"{ctime()} Updated Name: {task.get_name()}") # Expected: Payment-Gateway-Validator
 
 asyncio.run(main())
