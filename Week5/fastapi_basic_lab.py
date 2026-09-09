@@ -59,7 +59,7 @@ def read_item_by_id(item_id: int):
 def search_users(username: str, age: int = 18):
     """
     Step 3: Query Parameters.
-    Access via: http://127.0.0.1:8000/users?username=Alice&age=21
+    Access via: http://127.0.0.1:8080/users?username=Alice&age=21
     'age' has a default value of 18 if the user does not provide it in the URL.
     """
     print(f"[SERVER LOG] Searching for user: {username}, Age constraint: {age}")

@@ -9,14 +9,14 @@ async def short_job():
 async def main():
     task = asyncio.create_task(short_job())
     
-    # 
-    print(f"{ctime()} Is task done? {task.done()}")          # 
-    print(f"{ctime()} Is task canceled? {task.cancelled()}")  # 
+    # Inspect status immediately while the task is still running
+    print(f"{ctime()} Is task done? {task.done()}")          # Expected output: False
+    print(f"{ctime()} Is task canceled? {task.cancelled()}")  # Expected output: False
     
-    await task # 
+    await task # wait for the task to complete
     
     # Inspect status again after it finishes
-    print(f"{ctime()} Is task done now? {task.done()}")      # 
-    print(f"{ctime()} Is task canceled now? {task.cancelled()}") # 
+    print(f"{ctime()} Is task done now? {task.done()}")      # Expected output: True
+    print(f"{ctime()} Is task canceled now? {task.cancelled()}") # Expected output: False
 
 asyncio.run(main())
