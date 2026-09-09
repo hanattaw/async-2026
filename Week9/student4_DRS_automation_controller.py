@@ -4,7 +4,7 @@ import redis.asyncio as redis
 # ⚙️ CONFIGURATION
 REDIS_HOST = 'localhost'
 GROUP_ID = 'g01'
-STUDENT_ID = '66010004'
+STUDENT_ID = '6720301002'
 
 STREAM_KEY = f"f1:telemetry:{GROUP_ID}"
 GROUP_NAME = "f1_pitwall"
